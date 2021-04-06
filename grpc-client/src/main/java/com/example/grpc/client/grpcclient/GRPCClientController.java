@@ -55,16 +55,16 @@ public class GRPCClientController {
         	return grpcClientService.ping();
     	}
 
-    @GetMapping("/getFootprint")
+    /*@GetMapping("/getFootprint")
       public double getFootprint()
 	  {
 	  	System.out.println("Creating 2D array from the file");
 	  	grpcClientService.create2DArrayFromFile();
 	  	return grpcClientService.getFootprint();
-	  }
+	  }*/
 
 	@GetMapping("/getRequestNumOf")
-	public String getRequestNumOf(@RequestParam(value = "bs" , defaultValue = "2") int bs, @RequestParam(value = "reqNum" , defaultValue = "10") int reqNum)
+	public String getRequestNumOf(@RequestParam(value = "bs" , defaultValue = "2") int bs, @RequestParam(value = "reqNum" , defaultValue = "4") int reqNum)
 	{
 		System.out.println("Getting Request number of...");
 		grpcClientService.getRequestNumOf(bs,reqNum);
