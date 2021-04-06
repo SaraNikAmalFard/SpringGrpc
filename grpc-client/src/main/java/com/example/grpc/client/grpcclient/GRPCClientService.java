@@ -219,10 +219,17 @@ public class GRPCClientService {
 	{
 		/*bs=2
 		reqNum = 10;*/
+		System.out.println("Entered request num method");
+		System.out.println("bs = " + bs);
+		System.out.println("reqNum = " + reqNum);
 		int size = matrixA.length / bs;
+		System.out.println("size = " + size);
 		int rowA = reqNum / (size * size);
+		System.out.println("rowA = " + rowA);
 		int colArowB = (reqNum % (size * size)) / size;
+		System.out.println("colARowB = " + colArowB);
 		int colB = (reqNum % (size * size)) % size;
+		System.out.println("Col B = " + colB);
 		int[][] ma = new int[bs][bs];
 		int[][] mb = new int[bs][bs];
 		for (int ki = 0; ki < bs; ki++)
