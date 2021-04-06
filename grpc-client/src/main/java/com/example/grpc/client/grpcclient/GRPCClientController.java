@@ -24,4 +24,8 @@ public class GRPCClientController {
     	public String ping() {
         	return grpcClientService.ping();
     	}
+
+    @GetMapping("/getFootprint")
+      public double getFootprint() {return grpcClientService.getFootprint();}
+
 }
