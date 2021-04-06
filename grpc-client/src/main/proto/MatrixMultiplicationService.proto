@@ -17,7 +17,7 @@ message MatrixMultiplicationReply{
 }
 
 service MatrixMultiplicationService {
-  rpc AddBlock(MatrixMultiplicationRequest) returns (MatrixMultiplicationReply){}
-  rpc MultiplyBlock(MatrixMultiplicationRequest) returns (MatrixMultiplicationReply){}
-  rpc multiplyStreamBlock(stream MatrixMultiplicationRequest) returns ( stream MatrixMultiplicationReply){}
+  rpc AddBlock(MatrixMultiplicationRequest) returns (MatrixMultiplicationReply);//{}
+  rpc MultiplyBlock(MatrixMultiplicationRequest) returns (MatrixMultiplicationReply);//{}
+  rpc multiplyStreamBlock(stream MatrixMultiplicationRequest) returns ( stream MatrixMultiplicationReply);//{}
 }
