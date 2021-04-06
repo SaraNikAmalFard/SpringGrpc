@@ -247,7 +247,6 @@ public class GRPCClientService {
 	}
 
 
-
 	/*public static int[][] multiplyMatrixBlock(*//*int[][] matrixA, int[][] matrixB ,*//* int deadline)
 	{
 		System.out.println("Entered the multiplication method");
