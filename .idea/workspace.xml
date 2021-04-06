@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0671383c-5b85-48d7-aafd-cb589ad97038" name="Default Changelist" comment="changes 3">
-      <change afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/FileNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/FileStorageException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/FileStorageProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/FileStorageService.java" afterDir="false" />
+    <list default="true" id="0671383c-5b85-48d7-aafd-cb589ad97038" name="Default Changelist" comment="changes 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-client/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +65,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GrpcClientApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,7 +138,8 @@
       <workItem from="1616932794962" duration="5527000" />
       <workItem from="1616956512054" duration="2952000" />
       <workItem from="1616962770312" duration="2275000" />
-      <workItem from="1617707736389" duration="14487000" />
+      <workItem from="1617707736389" duration="16052000" />
+      <workItem from="1617738472102" duration="253000" />
     </task>
     <task id="LOCAL-00001" summary="changes 1">
       <created>1617721503406</created>
@@ -164,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617726074170</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changes 4">
+      <created>1617735861470</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617735861470</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +179,8 @@
     <MESSAGE value="changes 1" />
     <MESSAGE value="changes 2" />
     <MESSAGE value="changes 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes 3" />
+    <MESSAGE value="changes 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes 4" />
   </component>
   <component name="WindowStateProjectService">
     <state x="434" y="187" key="#Notifications" timestamp="1616835718928">
@@ -245,10 +251,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616963567056" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1617726083701">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1617735866869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617726083701" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617735866869" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1616835986785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -62,4 +62,14 @@ public class GRPCClientController {
 	  	grpcClientService.create2DArrayFromFile();
 	  	return grpcClientService.getFootprint();
 	  }
+
+	@GetMapping("/getRequestNumOf")
+	public String getRequestNumOf(@RequestParam(value = "bs" , defaultValue = "2") int bs, @RequestParam(value = "reqNum" , defaultValue = "10") int reqNum)
+	{
+		System.out.println("Getting Request number of...");
+		grpcClientService.getRequestNumOf(bs,reqNum);
+		System.out.println("be is = " + bs);
+		System.out.println("Req num is = " + reqNum);
+		return "Method successfully finished";
+	}
 }
