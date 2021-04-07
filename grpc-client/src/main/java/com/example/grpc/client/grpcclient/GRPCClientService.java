@@ -307,6 +307,7 @@ public class GRPCClientService {
 		for (int i = 0; i < SERVER_NUM; i++)
 		{
 			System.out.println("Stub" +i +" is called " + asyncStubList.get(i).toString());
+			System.out.println("Latch list size is: " + latchList.size());
 			latchList.set(i , new CountDownLatch(1));
 			System.out.println("Latch list " + i + "is set");
 			int finalI = i;
