@@ -72,13 +72,14 @@ public class GRPCClientController {
 	}
 
 	@GetMapping("/multiplyMatrixBlock")
-	public int[][] multiplyMatrixBlock(@RequestParam(value = "deadline" , defaultValue = "10") int deadline)
+	public String multiplyMatrixBlock(@RequestParam(value = "deadline" , defaultValue = "10") int deadline)
 	{
 		System.out.println("Creating 2D array from the file...");
 		grpcClientService.create2DArrayFromFile();
 		System.out.println("2D arrays create finished.");
 		System.out.println("In controller, calling multiply block...");
 		System.out.println("Deadline = " + deadline);
-		return grpcClientService.multiplyMatrixBlock(deadline);
+		grpcClientService.multiplyMatrixBlock(deadline);
+		return "Multiplication successfully done!";
 	}
 }
