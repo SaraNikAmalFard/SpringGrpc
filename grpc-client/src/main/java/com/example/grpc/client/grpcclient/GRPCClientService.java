@@ -336,7 +336,8 @@ public class GRPCClientService {
 					System.out.println("current server: " + currentServer + " And re quest number is = " + reqNum[currentServer]);
 					//this is called to get Result of Mult / server calls this to give us result
 					//resultMatrixArrayList.toArray()[currentServer * workPerServer + (resNum[currentServer]++)] = arrayReplyBuilder(matrixResult);
-					resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
+					//resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
+					resultMatrixArrayList.set(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
 					//System.out.println("Request number = " + reqNum[currentServer]);
 					if (reqNum[currentServer] < workPerServer)
 					{
