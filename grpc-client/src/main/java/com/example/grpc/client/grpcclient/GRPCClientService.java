@@ -258,15 +258,15 @@ public class GRPCClientService {
 		System.out.println("Entered the multiplication method");
 		//int footPrint = (int)getFootprint();
 		//double footPrint = getFootprint();
-		System.out.println("Deadline is = " + deadline);
+		//System.out.println("Deadline is = " + deadline);
 		int footPrint = 10;
-		System.out.println("Foot print is: " + footPrint);
+		//System.out.println("Foot print is: " + footPrint);
 		int bSize = 2;
-		System.out.println("Matrix A.length = " + matrixA.length);
+		//System.out.println("Matrix A.length = " + matrixA.length);
 		int newSize = matrixA.length / bSize;
-		System.out.println("new size i: "  + newSize);
+		//System.out.println("new size i: "  + newSize);
 		int multiplyNum = (newSize) * (newSize) * (newSize);
-		System.out.println("Required multily number  is: " + multiplyNum);
+		System.out.println("Required multiply number  is: " + multiplyNum);
 		int SERVER_NUM = (footPrint* multiplyNum)/deadline; // from the formula
 		System.out.println("Number of servers required is: " + SERVER_NUM);
 		if(SERVER_NUM > 2)
@@ -299,7 +299,7 @@ public class GRPCClientService {
         MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub7  =MatrixMultiplicationServiceGrpc.newStub(channel7);
         MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub8  =MatrixMultiplicationServiceGrpc.newStub(channel8);*/
 
-		System.out.println("Adding stubs to list ... ");
+		//System.out.println("Adding stubs to list ... ");
 		ArrayList<MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub> asyncStubList = new ArrayList<>(SERVER_NUM);
 		asyncStubList.add(asyncStub1);
 		asyncStubList.add(asyncStub2);
@@ -309,7 +309,10 @@ public class GRPCClientService {
         asyncStubList.add(asyncStub6);
         asyncStubList.add(asyncStub7);
         asyncStubList.add(asyncStub8);*/
-
+        for(int i=0; i<multiplyNum; i++)
+		{
+			resultMatrixArrayList.add(null);
+		}
 		for (int i = 0; i < SERVER_NUM; i++)
 		{
 			System.out.println("Stub " +i +" is called " + asyncStubList.get(i).toString());
@@ -327,8 +330,8 @@ public class GRPCClientService {
 				public void onNext(MatrixMultiplicationReply matrixResult)
 				{
 					System.out.println("On next for result is being called...");
-					if(currentServer == 1)
-						System.out.println("current server: " + currentServer + " And re quest number is = " + reqNum[currentServer]);
+
+					System.out.println("current server: " + currentServer + " And re quest number is = " + reqNum[currentServer]);
 					//this is called to get Result of Mult / server calls this to give us result
 					//resultMatrixArrayList.toArray()[currentServer * workPerServer + (resNum[currentServer]++)] = arrayReplyBuilder(matrixResult);
 					resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
