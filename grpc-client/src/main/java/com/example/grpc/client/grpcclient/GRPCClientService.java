@@ -199,7 +199,9 @@ public class GRPCClientService {
 		return ftprnt;
 	}
 
-	public static int[][] arrayReplyBuilder(MatrixMultiplicationReply reply) {
+	public static int[][] arrayReplyBuilder(MatrixMultiplicationReply reply)
+	{
+		System.out.println("Here is array reply builder...");
 		int MAX = matrixA.length;
 		int[][] C = new int[MAX][MAX];
 		for (int i = 0; i < MAX; i++) {
@@ -207,6 +209,7 @@ public class GRPCClientService {
 				C[i][j] = reply.getMatrixC(i).getColumn(j);
 			}
 		}
+		System.out.println("Reply builder finished");
 		return C;
 	}
 
@@ -312,7 +315,7 @@ public class GRPCClientService {
 			//latchList.add(new CountDownLatch(1));
 			System.out.println("Latch list size is" + latchList.size());
 			System.out.println("Latch list " + i + "is set");
-			int finalI = i;
+			int currentServer = i;
 			System.out.println("Dealing with stub number " + i);
 			System.out.println("Stub size is: " + asyncStubList.size());
 			StreamObserver<MatrixMultiplicationRequest> temp =	asyncStubList.get(i).multiplyStreamBlock(new StreamObserver<MatrixMultiplicationReply>()
@@ -321,23 +324,30 @@ public class GRPCClientService {
 				public void onNext(MatrixMultiplicationReply matrixResult)
 				{
 					System.out.println("On next for result is being called...");
+					System.out.println("current server: " + currentServer);
 					//this is called to get Result of Mult / server calls this to give us result
-					//resultMatrixArrayList.toArray()[finalI * workPerServer + (resNum[finalI]++)] = arrayReplyBuilder(matrixResult);
-					resultMatrixArrayList.add(finalI * workPerServer + (resNum[finalI]++),arrayReplyBuilder(matrixResult));
+					//resultMatrixArrayList.toArray()[currentServer * workPerServer + (resNum[currentServer]++)] = arrayReplyBuilder(matrixResult);
+					resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
 					System.out.println("Result num ....");
-					if (reqNum[finalI] < workPerServer)  // we call this on next to give server the next work load
-						requestObserverList.get(finalI).onNext(getRequestNumOf(/*matrixA,matrixB, */bSize ,finalI * workPerServer + (reqNum[finalI]++)));
+					if (reqNum[currentServer] < workPerServer)
+					{
+						System.out.println("current server in if: " +currentServer);
+						System.out.println("Work is not done yet...");
+						requestObserverList.get(currentServer).onNext(getRequestNumOf(/*matrixA,matrixB, */bSize ,currentServer * workPerServer + (reqNum[currentServer]++)));
+
+					}// we call this on next to give server the next work load
+
 					else
-						requestObserverList.get(finalI).onCompleted();
+						requestObserverList.get(currentServer).onCompleted();
 				}
 				@Override
 				public void onError(Throwable t) {
-					latchList.get(finalI).countDown(); }
+					latchList.get(currentServer).countDown(); }
 
 				@Override
 				public void onCompleted()
 				{//info("Finished RecordRoute");
-					latchList.get(finalI).countDown();
+					latchList.get(currentServer).countDown();
 				}
 			});
 			//requestObserverList.set(i,temp);

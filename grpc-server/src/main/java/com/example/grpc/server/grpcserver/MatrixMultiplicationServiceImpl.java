@@ -62,9 +62,13 @@ public class MatrixMultiplicationServiceImpl extends MatrixMultiplicationService
         System.out.println("Entered stream ... ");
         return new StreamObserver<MatrixMultiplicationRequest>()
         {
+
             @Override
-            public void onNext(MatrixMultiplicationRequest request) {
+            public void onNext(MatrixMultiplicationRequest request)
+            {
+                System.out.println("On next in steam block...");
                 responseObserver.onNext(multiplyBlockInt(request).build());
+                System.out.println("Second line on next in stream...");
             }
 
             @Override
