@@ -74,7 +74,7 @@ public class GRPCClientController {
 	}
 
 	@GetMapping("/multiplyMatrixBlock")
-	public JSONArray multiplyMatrixBlock(@RequestParam(value = "deadline" , defaultValue = "10") int deadline)
+	public String multiplyMatrixBlock(@RequestParam(value = "deadline" , defaultValue = "10") int deadline)
 	{
 		//System.out.println("Creating 2D array from the file...");
 		grpcClientService.create2DArrayFromFile();
@@ -83,7 +83,7 @@ public class GRPCClientController {
 		//System.out.println("Deadline = " + deadline);
 		//grpcClientService.multiplyMatrixBlock(deadline)
 		System.out.println("Generating results...");
-		return grpcClientService.replyMatrixToJson(grpcClientService.multiplyMatrixBlock(deadline));
-		//return "Multiplication successfully done!";
+		 grpcClientService.replyMatrixToJson(grpcClientService.multiplyMatrixBlock(deadline));
+		return "Multiplication successfully done!";
 	}
 }
