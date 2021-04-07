@@ -306,9 +306,10 @@ public class GRPCClientService {
 
 		for (int i = 0; i < SERVER_NUM; i++)
 		{
-			System.out.println("Stub" +i +" is called " + asyncStubList.get(i).toString());
+			System.out.println("Stub " +i +" is called " + asyncStubList.get(i).toString());
 			//latchList.set(i , new CountDownLatch(1));
-			latchList.add(new CountDownLatch(1));
+			latchList.add(i , new CountDownLatch(1));
+			//latchList.add(new CountDownLatch(1));
 			System.out.println("Latch list size is" + latchList.size());
 			System.out.println("Latch list " + i + "is set");
 			int finalI = i;
@@ -338,7 +339,8 @@ public class GRPCClientService {
 					latchList.get(finalI).countDown();
 				}
 			});
-			requestObserverList.set(i,temp);
+			//requestObserverList.set(i,temp);
+			requestObserverList.add(i,temp);
 
 			System.out.println("Initial stream is calling ... ");
 			//initial call to start stream
@@ -364,7 +366,8 @@ public class GRPCClientService {
 		for (int k = 0; k < matrixArrayToAdd.toArray().length; k++)
 		{
 			matrix = new int[matrixA.length][matrixB.length];
-			matrixArrayToAdd.set(k, matrix);
+			//matrixArrayToAdd.set(k, matrix);
+			matrixArrayToAdd.add(k,matrix);
 
 			for (int colIndex = 0; colIndex < newSize; colIndex++)
 			{

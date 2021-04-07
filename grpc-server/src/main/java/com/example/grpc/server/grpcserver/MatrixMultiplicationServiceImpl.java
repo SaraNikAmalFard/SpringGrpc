@@ -60,7 +60,8 @@ public class MatrixMultiplicationServiceImpl extends MatrixMultiplicationService
     public StreamObserver<MatrixMultiplicationRequest> multiplyStreamBlock(StreamObserver<MatrixMultiplicationReply> responseObserver)
     {
         System.out.println("Entered stream ... ");
-        return new StreamObserver<MatrixMultiplicationRequest>() {
+        return new StreamObserver<MatrixMultiplicationRequest>()
+        {
             @Override
             public void onNext(MatrixMultiplicationRequest request) {
                 responseObserver.onNext(multiplyBlockInt(request).build());
@@ -76,6 +77,7 @@ public class MatrixMultiplicationServiceImpl extends MatrixMultiplicationService
                 responseObserver.onCompleted();
             }
         };
+
     }
 
     private MatrixMultiplicationReply.Builder multiplyBlockInt(MatrixMultiplicationRequest request)
