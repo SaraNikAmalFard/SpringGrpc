@@ -313,6 +313,7 @@ public class GRPCClientService {
 			System.out.println("Latch list " + i + "is set");
 			int finalI = i;
 			System.out.println("Dealing with stub number " + i);
+			System.out.println("Stub size is: " + asyncStubList.size());
 			StreamObserver<MatrixMultiplicationRequest> temp =	asyncStubList.get(i).multiplyStreamBlock(new StreamObserver<MatrixMultiplicationReply>()
 			{
 				@Override
