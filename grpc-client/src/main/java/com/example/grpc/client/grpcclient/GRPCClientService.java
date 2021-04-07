@@ -389,11 +389,10 @@ public class GRPCClientService {
 		int[][] matrix;
 		int[][] bMatRes;
 		ArrayList<int[][]> matrixArrayToAdd = new ArrayList<>(newSize);
-		for (int k = 0; k < matrixArrayToAdd.toArray().length; k++)
+		for (int k = 0; k < newSize /*matrixArrayToAdd.toArray().length*/; k++)
 		{
 			matrix = new int[matrixA.length][matrixB.length];
 			//matrixArrayToAdd.set(k, matrix);
-			matrixArrayToAdd.add(k,matrix);
 
 			for (int colIndex = 0; colIndex < newSize; colIndex++)
 			{
@@ -409,7 +408,9 @@ public class GRPCClientService {
 					}
 				}
 			}
+			matrixArrayToAdd.add(k,matrix);
 		}
+
 
 		//client
 		System.out.println("Generating Result ... ");
