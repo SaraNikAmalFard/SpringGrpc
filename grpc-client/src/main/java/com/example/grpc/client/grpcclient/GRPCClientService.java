@@ -256,8 +256,8 @@ public class GRPCClientService {
 		System.out.println("Required multiply number  is: " + multiplyNum);
 		int SERVER_NUM = (footPrint* multiplyNum)/deadline; // from the formula
 		System.out.println("Number of servers required is: " + SERVER_NUM);
-		if(SERVER_NUM > 2)
-		{SERVER_NUM = 2;}
+		if(SERVER_NUM > 4)
+		{SERVER_NUM = 4;}
 		System.out.println("Number of servers are set to: " + SERVER_NUM);
 		int workPerServer = multiplyNum / SERVER_NUM;
 		System.out.println("Work per server is:" + workPerServer);
