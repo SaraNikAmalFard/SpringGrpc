@@ -265,7 +265,7 @@ public class GRPCClientService {
 		System.out.println("Number of servers required is: " + SERVER_NUM);
 		if(SERVER_NUM > 2)
 		{SERVER_NUM = 2;}
-		System.out.println(" Number of servers are set to: " + SERVER_NUM);
+		System.out.println("Number of servers are set to: " + SERVER_NUM);
 		int workPerServer = multiplyNum / SERVER_NUM;
 		System.out.println("Work per server is:" + workPerServer);
 		ArrayList<StreamObserver<MatrixMultiplicationRequest>> requestObserverList = new ArrayList<>();
@@ -309,18 +309,21 @@ public class GRPCClientService {
 			System.out.println("Stub" +i +" is called " + asyncStubList.get(i).toString());
 			latchList.set(i , new CountDownLatch(1));
 			int finalI = i;
-
-			StreamObserver<MatrixMultiplicationRequest> temp =	asyncStubList.get(i).multiplyStreamBlock(new StreamObserver<MatrixMultiplicationReply>() {
+			System.out.println("Dealing with stub number " + i);
+			StreamObserver<MatrixMultiplicationRequest> temp =	asyncStubList.get(i).multiplyStreamBlock(new StreamObserver<MatrixMultiplicationReply>()
+			{
 				@Override
 				public void onNext(MatrixMultiplicationReply matrixResult)
-				{//this is called to get Result of Mult / server calls this to give us result
+				{
+					System.out.println("On next for result is being called...");
+					//this is called to get Result of Mult / server calls this to give us result
 					resultMatrixArrayList.toArray()[finalI * workPerServer + (resNum[finalI]++)] = arrayReplyBuilder(matrixResult);
+					System.out.println("Result num ....");
 					if (reqNum[finalI] < workPerServer)  // we call this on next to give server the next work load
 						requestObserverList.get(finalI).onNext(getRequestNumOf(/*matrixA,matrixB, */bSize ,finalI * workPerServer + (reqNum[finalI]++)));
 					else
 						requestObserverList.get(finalI).onCompleted();
 				}
-
 				@Override
 				public void onError(Throwable t) {
 					latchList.get(finalI).countDown(); }
