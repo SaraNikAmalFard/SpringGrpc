@@ -194,7 +194,7 @@ public class GRPCClientService {
 
 		long endTime = System.nanoTime();
 		long footPrint = endTime - startTime;
-		double ftprnt = (double) footPrint / 1_000_000_000;
+		double ftprnt = (double) footPrint / 1_000_000_000; // converting into seconds
 		System.out.println("Foot print is = " + ftprnt);
 		return ftprnt;
 	}
@@ -250,9 +250,10 @@ public class GRPCClientService {
 	public static int[][] multiplyMatrixBlock(/*int[][] matrixA, int[][] matrixB ,*/ int deadline)
 	{
 		System.out.println("Entered the multiplication method");
-		int footPrint = (int)getFootprint();
+		//int footPrint = (int)getFootprint();
+		//double footPrint = getFootprint();
 		System.out.println("Deadline is = " + deadline);
-		//int footPrint = 100;
+		int footPrint = 1;
 		System.out.println("Foot print is: " + footPrint);
 		int bSize = 2;
 		System.out.println("Matrix A.length = " + matrixA.length);
