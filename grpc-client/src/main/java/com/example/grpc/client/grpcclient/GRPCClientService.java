@@ -202,9 +202,12 @@ public class GRPCClientService {
 	public static int[][] arrayReplyBuilder(MatrixMultiplicationReply reply)
 	{
 		System.out.println("Here is array reply builder...");
-		int MAX = matrixA.length;
-		int[][] C = new int[MAX][MAX];
-		for (int i = 0; i < MAX; i++) {
+		//int size = matrixA.length;
+		int size = reply.getMatrixC(0).getColumnCount();
+		System.out.println("in reply builder size is = " + size);
+
+		int[][] C = new int[size][size];
+		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < C[i].length; j++) {
 				C[i][j] = reply.getMatrixC(i).getColumn(j);
 			}
