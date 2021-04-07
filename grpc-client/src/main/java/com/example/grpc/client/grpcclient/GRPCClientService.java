@@ -342,7 +342,11 @@ public class GRPCClientService {
 					}// we call this on next to give server the next work load
 
 					else
+					{
+						System.out.println("Server " + currentServer + " finished its job");
 						requestObserverList.get(currentServer).onCompleted();
+					}
+
 				}
 				@Override
 				public void onError(Throwable t) {
