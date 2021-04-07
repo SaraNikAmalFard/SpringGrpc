@@ -208,8 +208,10 @@ public class GRPCClientService {
 
 		int[][] C = new int[size][size];
 		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < C[i].length; j++) {
+			for (int j = 0; j < C[i].length; j++)
+			{
 				C[i][j] = reply.getMatrixC(i).getColumn(j);
+				System.out.println("C["+i+"]["+j+"]=" + C[i][j] );
 			}
 		}
 	//	System.out.println("Reply builder finished");
