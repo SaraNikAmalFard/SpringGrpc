@@ -253,7 +253,7 @@ public class GRPCClientService {
 		//int footPrint = (int)getFootprint();
 		//double footPrint = getFootprint();
 		System.out.println("Deadline is = " + deadline);
-		int footPrint = 1;
+		int footPrint = 10;
 		System.out.println("Foot print is: " + footPrint);
 		int bSize = 2;
 		System.out.println("Matrix A.length = " + matrixA.length);
