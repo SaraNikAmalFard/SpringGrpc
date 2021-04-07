@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
 
 @Service
 public class GRPCClientService {
@@ -435,6 +436,26 @@ public class GRPCClientService {
 			}
 		}
 		return matrixResultFinal;
+	}
+
+	public JSONArray replyMatrixToJson(int[][] matrix)
+	{
+		JSONArray jsonArray = new JSONArray();
+		for (int[] row : matrix)
+		{
+			JSONArray arr = new JSONArray();
+			for (int element : row)
+			{
+				arr.put(String.valueOf(element));
+				//	arr.add(Character.toString(el));
+			}
+			jsonArray.put(arr);
+			//jsonArray.add(arr);
+		}
+		return jsonArray;
+		//Another way
+		/*for(int[] row: matrix)
+			jsonArray.put(Arrays.toString(row));*/
 	}
 
 }

@@ -24,6 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0671383c-5b85-48d7-aafd-cb589ad97038" name="Default Changelist" comment="3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-client/grpc-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/grpc-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +161,7 @@
       <workItem from="1617707736389" duration="16052000" />
       <workItem from="1617738472102" duration="5580000" />
       <workItem from="1617780399851" duration="10923000" />
-      <workItem from="1617804061199" duration="13167000" />
+      <workItem from="1617804061199" duration="14108000" />
     </task>
     <task id="LOCAL-00001" summary="changes 1">
       <created>1617721503406</created>
@@ -356,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617822873333</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="3">
+      <created>1617823739908</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1617823739908</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,10 +436,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="129" y="54" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1617809805980" />
-    <state x="510" y="118" key="FileChooserDialogImpl" timestamp="1617780415618">
+    <state x="510" y="118" key="FileChooserDialogImpl" timestamp="1617824320073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="510" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617780415618" />
+    <state x="510" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617824320073" />
     <state x="506" y="261" key="Github.ShareDialog" timestamp="1617720517294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -474,10 +484,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616963567056" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1617822879176">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1617823748306">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617822879176" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617823748306" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1616835986785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

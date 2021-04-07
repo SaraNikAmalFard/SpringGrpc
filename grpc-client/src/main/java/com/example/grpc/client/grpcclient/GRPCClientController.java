@@ -1,7 +1,9 @@
 package com.example.grpc.client.grpcclient;
 
+import com.google.gson.JsonArray;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.json.JSONArray;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -72,14 +74,16 @@ public class GRPCClientController {
 	}
 
 	@GetMapping("/multiplyMatrixBlock")
-	public String multiplyMatrixBlock(@RequestParam(value = "deadline" , defaultValue = "10") int deadline)
+	public JSONArray multiplyMatrixBlock(@RequestParam(value = "deadline" , defaultValue = "10") int deadline)
 	{
-		System.out.println("Creating 2D array from the file...");
+		//System.out.println("Creating 2D array from the file...");
 		grpcClientService.create2DArrayFromFile();
-		System.out.println("2D arrays create finished.");
-		System.out.println("In controller, calling multiply block...");
-		System.out.println("Deadline = " + deadline);
-		grpcClientService.multiplyMatrixBlock(deadline);
-		return "Multiplication successfully done!";
+		//System.out.println("2D arrays create finished.");
+		//System.out.println("In controller, calling multiply block...");
+		//System.out.println("Deadline = " + deadline);
+		//grpcClientService.multiplyMatrixBlock(deadline)
+		System.out.println("Generating results...");
+		return grpcClientService.replyMatrixToJson(grpcClientService.multiplyMatrixBlock(deadline));
+		//return "Multiplication successfully done!";
 	}
 }
