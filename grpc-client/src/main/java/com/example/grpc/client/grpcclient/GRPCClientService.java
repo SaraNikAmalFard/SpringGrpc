@@ -201,10 +201,10 @@ public class GRPCClientService {
 
 	public static int[][] arrayReplyBuilder(MatrixMultiplicationReply reply)
 	{
-		System.out.println("Here is array reply builder...");
+		//System.out.println("Here is array reply builder...");
 		//int size = matrixA.length;
 		int size = reply.getMatrixC(0).getColumnCount();
-		System.out.println("in reply builder size is = " + size);
+	//	System.out.println("in reply builder size is = " + size);
 
 		int[][] C = new int[size][size];
 		for (int i = 0; i < size; i++) {
@@ -212,23 +212,23 @@ public class GRPCClientService {
 				C[i][j] = reply.getMatrixC(i).getColumn(j);
 			}
 		}
-		System.out.println("Reply builder finished");
+	//	System.out.println("Reply builder finished");
 		return C;
 	}
 
 	public static MatrixMultiplicationRequest getRequestNumOf(/*int[][] matrixA, int[][] matrixB,*/ int bs, int reqNum)
 	{
-		System.out.println("Entered request num method");
-		System.out.println("bs = " + bs);
-		System.out.println("reqNum = " + reqNum);
+		System.out.println("Entered request num method ," + " reqNum is = "+ reqNum);
+		/*System.out.println("bs = " + bs);
+		System.out.println("reqNum = " + reqNum);*/
 		int size = matrixA.length / bs;
-		System.out.println("size = " + size);
+		//System.out.println("size = " + size);
 		int rowA = reqNum / (size * size);
-		System.out.println("rowA = " + rowA);
+		//System.out.println("rowA = " + rowA);
 		int colArowB = (reqNum % (size * size)) / size;
-		System.out.println("colARowB = " + colArowB);
+		//System.out.println("colARowB = " + colArowB);
 		int colB = (reqNum % (size * size)) % size;
-		System.out.println("Col B = " + colB);
+		//System.out.println("Col B = " + colB);
 		int[][] ma = new int[bs][bs];
 		int[][] mb = new int[bs][bs];
 		for (int ki = 0; ki < bs; ki++)
@@ -239,7 +239,7 @@ public class GRPCClientService {
 				mb[ki][kj] = matrixB[colArowB * bs + ki][colB * bs + kj];
 			}
 		}
-		for(int i=0;i<ma.length;i++)
+		/*for(int i=0;i<ma.length;i++)
 		{
 			for (int j=0;j<ma.length;j++)
 				System.out.println("ma[" +i+"]["+j+"] = " + ma[i][j]);
@@ -248,7 +248,7 @@ public class GRPCClientService {
 		{
 			for (int j=0;j<mb.length;j++)
 				System.out.println("mb[" +i+"]["+j+"] = " + mb[i][j]);
-		}
+		}*/
 		return requestBuilder(ma, mb);
 	}
 
@@ -328,17 +328,16 @@ public class GRPCClientService {
 				{
 					System.out.println("On next for result is being called...");
 					if(currentServer == 1)
-						System.out.println("current server: " + currentServer);
+						System.out.println("current server: " + currentServer + " And re quest number is = " + reqNum[currentServer]);
 					//this is called to get Result of Mult / server calls this to give us result
 					//resultMatrixArrayList.toArray()[currentServer * workPerServer + (resNum[currentServer]++)] = arrayReplyBuilder(matrixResult);
 					resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
-					System.out.println("Work per server = " + workPerServer);
-					System.out.println("Request number = " + reqNum[currentServer]);
+					//System.out.println("Request number = " + reqNum[currentServer]);
 					if (reqNum[currentServer] < workPerServer)
 					{
-						if(currentServer == 1)
-						{System.out.println("current server in if: " +currentServer);
-						    System.out.println("Work is not done yet...");}
+						System.out.println("current server in if: " + currentServer);
+						System.out.println("Work is not done yet...");
+
 						requestObserverList.get(currentServer).onNext(getRequestNumOf(/*matrixA,matrixB, */bSize ,currentServer * workPerServer + (reqNum[currentServer]++)));
 
 					}// we call this on next to give server the next work load
