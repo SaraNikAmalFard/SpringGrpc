@@ -23,9 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0671383c-5b85-48d7-aafd-cb589ad97038" name="Default Changelist" comment="changes 17">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-server/src/main/java/com/example/grpc/server/grpcserver/MatrixMultiplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-server/src/main/java/com/example/grpc/server/grpcserver/MatrixMultiplicationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-server/src/main/proto/MatrixMultiplicationService .proto" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-server/src/main/proto/MatrixMultiplicationService .proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +82,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GrpcClientApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,6 +158,7 @@
       <workItem from="1617707736389" duration="16052000" />
       <workItem from="1617738472102" duration="5580000" />
       <workItem from="1617780399851" duration="10923000" />
+      <workItem from="1617804061199" duration="1216000" />
     </task>
     <task id="LOCAL-00001" summary="changes 1">
       <created>1617721503406</created>

@@ -322,7 +322,8 @@ public class GRPCClientService {
 				{
 					System.out.println("On next for result is being called...");
 					//this is called to get Result of Mult / server calls this to give us result
-					resultMatrixArrayList.toArray()[finalI * workPerServer + (resNum[finalI]++)] = arrayReplyBuilder(matrixResult);
+					//resultMatrixArrayList.toArray()[finalI * workPerServer + (resNum[finalI]++)] = arrayReplyBuilder(matrixResult);
+					resultMatrixArrayList.add(finalI * workPerServer + (resNum[finalI]++),arrayReplyBuilder(matrixResult));
 					System.out.println("Result num ....");
 					if (reqNum[finalI] < workPerServer)  // we call this on next to give server the next work load
 						requestObserverList.get(finalI).onNext(getRequestNumOf(/*matrixA,matrixB, */bSize ,finalI * workPerServer + (reqNum[finalI]++)));
