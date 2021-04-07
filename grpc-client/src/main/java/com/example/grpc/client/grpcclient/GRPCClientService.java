@@ -327,7 +327,8 @@ public class GRPCClientService {
 				public void onNext(MatrixMultiplicationReply matrixResult)
 				{
 					System.out.println("On next for result is being called...");
-					System.out.println("current server: " + currentServer);
+					if(currentServer == 1)
+						System.out.println("current server: " + currentServer);
 					//this is called to get Result of Mult / server calls this to give us result
 					//resultMatrixArrayList.toArray()[currentServer * workPerServer + (resNum[currentServer]++)] = arrayReplyBuilder(matrixResult);
 					resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
@@ -335,15 +336,17 @@ public class GRPCClientService {
 					System.out.println("Request number = " + reqNum[currentServer]);
 					if (reqNum[currentServer] < workPerServer)
 					{
-						System.out.println("current server in if: " +currentServer);
-						System.out.println("Work is not done yet...");
+						if(currentServer == 1)
+						{System.out.println("current server in if: " +currentServer);
+						    System.out.println("Work is not done yet...");}
 						requestObserverList.get(currentServer).onNext(getRequestNumOf(/*matrixA,matrixB, */bSize ,currentServer * workPerServer + (reqNum[currentServer]++)));
 
 					}// we call this on next to give server the next work load
 
 					else
 					{
-						System.out.println("Server " + currentServer + " finished its job");
+						if(currentServer == 1 )
+							System.out.println("Server " + currentServer + " finished its job");
 						requestObserverList.get(currentServer).onCompleted();
 					}
 
