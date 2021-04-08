@@ -197,6 +197,7 @@ public class GRPCClientService {
 		long footPrint = endTime - startTime;
 		//double ftprnt = (double) footPrint / 1_000_000_000; // converting into seconds
 		System.out.println("Foot print is = " + footPrint);
+        System.out.println("Integer foot print is = " + (int)footPrint);
 		return footPrint;
 	}
 
