@@ -178,7 +178,7 @@ public class GRPCClientService {
 		return request.build();
 	}
 
-	public static double getFootprint()
+	public static long getFootprint()
 	{
 		int[][] matrixOne = {{1,2} , {3,4}};
 		int[][] matrixTwo = {{5,6} , {7,8}};
@@ -195,18 +195,15 @@ public class GRPCClientService {
 
 		long endTime = System.nanoTime();
 		long footPrint = endTime - startTime;
-		double ftprnt = (double) footPrint / 1_000_000_000; // converting into seconds
-		System.out.println("Foot print is = " + ftprnt);
-		return ftprnt;
+		//double ftprnt = (double) footPrint / 1_000_000_000; // converting into seconds
+		System.out.println("Foot print is = " + footPrint);
+		return footPrint;
 	}
 
 	public static int[][] arrayReplyBuilder(MatrixMultiplicationReply reply)
 	{
-		//System.out.println("Here is array reply builder...");
-		//int size = matrixA.length;
-		int size = reply.getMatrixC(0).getColumnCount();
-	//	System.out.println("in reply builder size is = " + size);
 
+		int size = reply.getMatrixC(0).getColumnCount();
 		int[][] C = new int[size][size];
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < C[i].length; j++)
@@ -215,7 +212,6 @@ public class GRPCClientService {
 				System.out.println("C["+i+"]["+j+"]=" + C[i][j] );
 			}
 		}
-	//	System.out.println("Reply builder finished");
 		return C;
 	}
 
@@ -244,14 +240,14 @@ public class GRPCClientService {
 	{
 		System.out.println("Entered the multiplication method");
 		//int footPrint = (int)getFootprint();
-		//double footPrint = getFootprint();
-		//System.out.println("Deadline is = " + deadline);
-		int footPrint = 10;
-		//System.out.println("Foot print is: " + footPrint);
+		//long ftPrint = getFootprint();
+		int footPrint = (int)getFootprint();
+        System.out.println("Foot print is: " + footPrint);
+		System.out.println("Deadline is = " + deadline);
+		//int footPrint = 10;
+
 		int bSize = 2;
-		//System.out.println("Matrix A.length = " + matrixA.length);
 		int newSize = matrixA.length / bSize;
-		//System.out.println("new size i: "  + newSize);
 		int multiplyNum = (newSize) * (newSize) * (newSize);
 		System.out.println("Required multiply number  is: " + multiplyNum);
 		int SERVER_NUM = (footPrint* multiplyNum)/deadline; // from the formula
