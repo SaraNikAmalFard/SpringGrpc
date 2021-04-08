@@ -16,6 +16,7 @@ import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
+import com.google.gson.Gson;
 
 @Service
 public class GRPCClientService {
@@ -34,6 +35,8 @@ public class GRPCClientService {
 
 	public static int matrixA[][];
 	public static int matrixB[][];
+
+    Gson gson = new Gson();
 
 	public boolean isPowerOfTwo(int n)
 	{
@@ -417,7 +420,7 @@ public class GRPCClientService {
 		return matrixResultFinal;
 	}
 
-	public JSONArray replyMatrixToJson(int[][] matrix)
+	/*public JSONArray replyMatrixToJson(int[][] matrix)
 	{
 		JSONArray jsonArray = new JSONArray();
 		for (int[] row : matrix)
@@ -433,9 +436,20 @@ public class GRPCClientService {
 		}
 		return jsonArray;
 		//Another way
-		/*for(int[] row: matrix)
-			jsonArray.put(Arrays.toString(row));*/
-	}
+		*//*for(int[] row: matrix)
+			jsonArray.put(Arrays.toString(row));*//*
+	}*/
+
+    public String  resultToJson(int[][] matrix)
+    {
+        /*int[][] data = {{1, 2, 3}, {3, 4, 5}, {4, 5, 6}};
+        String json = gson.toJson(data);
+        System.out.println("Data = " + json);*/
+
+        String json = gson.toJson(matrix);
+        System.out.println("Result = " + json);
+        return json;
+    }
 
 }
 

@@ -83,7 +83,7 @@ public class GRPCClientController {
 		//System.out.println("Deadline = " + deadline);
 		//grpcClientService.multiplyMatrixBlock(deadline)
 		System.out.println("Generating results...");
-		 grpcClientService.replyMatrixToJson(grpcClientService.multiplyMatrixBlock(deadline));
-		return "Multiplication successfully done!";
+		 //grpcClientService.replyMatrixToJson(grpcClientService.multiplyMatrixBlock(deadline));
+		return grpcClientService.resultToJson(grpcClientService.multiplyMatrixBlock(deadline));
 	}
 }
