@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0671383c-5b85-48d7-aafd-cb589ad97038" name="Default Changelist" comment="20">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-client/src/main/java/com/example/grpc/client/grpcclient/GRPCClientController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,15 +82,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GrpcClientApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,7 +158,8 @@
       <workItem from="1617780399851" duration="10923000" />
       <workItem from="1617804061199" duration="17198000" />
       <workItem from="1617868442132" duration="6216000" />
-      <workItem from="1618387374517" duration="8469000" />
+      <workItem from="1618387374517" duration="11805000" />
+      <workItem from="1618423552475" duration="1376000" />
     </task>
     <task id="LOCAL-00001" summary="changes 1">
       <created>1617721503406</created>
@@ -434,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618392517284</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="20">
+      <created>1618397114184</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1618397114184</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,10 +560,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616963567056" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1618392530440">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1618397123124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1618392530440" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1618397123124" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1616835986785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
