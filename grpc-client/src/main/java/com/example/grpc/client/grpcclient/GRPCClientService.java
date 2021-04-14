@@ -256,8 +256,8 @@ public class GRPCClientService {
 		System.out.println("Required multiply number  is: " + multiplyNum);
 		int SERVER_NUM = (footPrint* multiplyNum)/deadline; // from the formula
 		System.out.println("Number of servers required is: " + SERVER_NUM);
-		if(SERVER_NUM > 4)
-		{SERVER_NUM = 4;}
+		if(SERVER_NUM > 8)
+		{SERVER_NUM = 8;}
 		System.out.println("Number of servers are set to: " + SERVER_NUM);
 		int workPerServer = multiplyNum / SERVER_NUM;
 		System.out.println("Work per server is:" + workPerServer);
@@ -271,20 +271,20 @@ public class GRPCClientService {
 		ManagedChannel channel2 = ManagedChannelBuilder.forAddress("172.31.74.213", 9090).usePlaintext().build();
         ManagedChannel channel3 = ManagedChannelBuilder.forAddress("172.31.76.162", 9090).usePlaintext().build();
         ManagedChannel channel4 = ManagedChannelBuilder.forAddress("172.31.77.230", 9090).usePlaintext().build();
-        /*ManagedChannel channel5 = ManagedChannelBuilder.forAddress("172.31.70.55", 8081).usePlaintext().build();
-        ManagedChannel channel6 = ManagedChannelBuilder.forAddress("172.31.67.0", 8081).usePlaintext().build();
-        ManagedChannel channel7 = ManagedChannelBuilder.forAddress("172.31.76.213", 8081).usePlaintext().build();
-        ManagedChannel channel8 = ManagedChannelBuilder.forAddress("172.31.68.246", 8081).usePlaintext().build();*/
+        ManagedChannel channel5 = ManagedChannelBuilder.forAddress("172.31.70.55", 9090).usePlaintext().build();
+        ManagedChannel channel6 = ManagedChannelBuilder.forAddress("172.31.67.0", 9090).usePlaintext().build();
+        ManagedChannel channel7 = ManagedChannelBuilder.forAddress("172.31.76.213", 9090).usePlaintext().build();
+        ManagedChannel channel8 = ManagedChannelBuilder.forAddress("172.31.68.246", 9090).usePlaintext().build();
 
 		System.out.println("Stubs are being created...");
 		MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub1  =MatrixMultiplicationServiceGrpc.newStub(channel1);
 		MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub2  =MatrixMultiplicationServiceGrpc.newStub(channel2);
         MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub3  =MatrixMultiplicationServiceGrpc.newStub(channel3);
         MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub4  =MatrixMultiplicationServiceGrpc.newStub(channel4);
-       /* MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub5  =MatrixMultiplicationServiceGrpc.newStub(channel5);
+        MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub5  =MatrixMultiplicationServiceGrpc.newStub(channel5);
         MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub6  =MatrixMultiplicationServiceGrpc.newStub(channel6);
         MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub7  =MatrixMultiplicationServiceGrpc.newStub(channel7);
-        MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub8  =MatrixMultiplicationServiceGrpc.newStub(channel8);*/
+        MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub asyncStub8  =MatrixMultiplicationServiceGrpc.newStub(channel8);
 
 		//System.out.println("Adding stubs to list ... ");
 		ArrayList<MatrixMultiplicationServiceGrpc.MatrixMultiplicationServiceStub> asyncStubList = new ArrayList<>(SERVER_NUM);
@@ -292,10 +292,10 @@ public class GRPCClientService {
 		asyncStubList.add(asyncStub2);
         asyncStubList.add(asyncStub3);
         asyncStubList.add(asyncStub4);
-        /*asyncStubList.add(asyncStub5);
+        asyncStubList.add(asyncStub5);
         asyncStubList.add(asyncStub6);
         asyncStubList.add(asyncStub7);
-        asyncStubList.add(asyncStub8);*/
+        asyncStubList.add(asyncStub8);
         for(int i=0; i<multiplyNum; i++)
 		{
 			resultMatrixArrayList.add(null);
@@ -314,9 +314,9 @@ public class GRPCClientService {
 				@Override
 				public void onNext(MatrixMultiplicationReply matrixResult)
 				{
-					System.out.println("On next for result is being called...");
+					//System.out.println("On next for result is being called...");
 
-					System.out.println("current server: " + currentServer + " And re quest number is = " + reqNum[currentServer]);
+					System.out.println("current server: " + currentServer + " And request number is = " + reqNum[currentServer]);
 					//this is called to get Result of Mult / server calls this to give us result
 					//resultMatrixArrayList.toArray()[currentServer * workPerServer + (resNum[currentServer]++)] = arrayReplyBuilder(matrixResult);
 					//resultMatrixArrayList.add(currentServer * workPerServer + (resNum[currentServer]++),arrayReplyBuilder(matrixResult));
@@ -333,8 +333,8 @@ public class GRPCClientService {
 
 					else
 					{
-						if(currentServer == 1 )
-							System.out.println("Server " + currentServer + " finished its job");
+
+						System.out.println("Server " + currentServer + " finished its job");
 						requestObserverList.get(currentServer).onCompleted();
 					}
 
@@ -383,7 +383,7 @@ public class GRPCClientService {
 			{
 				for (int rowIndex = 0; rowIndex < newSize; rowIndex++)
 				{
-					System.out.println("index = " + colIndex * (newSize * newSize) + k * newSize + rowIndex);
+					//System.out.println("index = " + colIndex * (newSize * newSize) + k * newSize + rowIndex);
 					bMatRes = resultMatrixArrayList.get(colIndex * (newSize * newSize) + k * newSize + rowIndex);
 					for (int ki = 0; ki < bSize; ki++)
 					{
