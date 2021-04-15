@@ -82,7 +82,7 @@ public class GRPCClientController {
 		//System.out.println("In controller, calling multiply block...");
 		//System.out.println("Deadline = " + deadline);
 		//grpcClientService.multiplyMatrixBlock(deadline)
-		System.out.println("Foot print is: " + grpcClientService.getFootprint());
+		//System.out.println("Foot print is: " + grpcClientService.getFootprint());
 		System.out.println("Generating results...");
 		 //grpcClientService.replyMatrixToJson(grpcClientService.multiplyMatrixBlock(deadline));
 		return grpcClientService.resultToJson(grpcClientService.multiplyMatrixBlock(deadline));
